@@ -8,7 +8,8 @@ int fibonacci(int n);
 int main(int argc , char* argv[]) {
     //declaracion de variables
     pid_t pid;
-
+    int status;
+    
     //declaracion de variables para el fork
     pid = fork();
 
@@ -17,11 +18,12 @@ int main(int argc , char* argv[]) {
     printf("hubo un error al crear el proceso hijo\n");
     }
     else if (pid == 0) {
-     printf("%.2i \n",fibonacci(25));
+     return fibonacci(25);
     }
     else {
     printf("Este es el padre\n");
-    wait(NULL);
+    wait(&status);
+    printf("El valor de status es: %d\n", WEXITSTATUS(status));
     }
 
     return 0;
