@@ -19,6 +19,7 @@ int main(int argc , char* argv[]) {
     }
     else if (pid == 0) {
      return fibonacci(25);
+     
     }
     else {
     printf("Este es el padre\n");
